@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Список курсов</h1>
+
+    {% if course_list %}
+<ul>
+    {% for course in course_list %}
+    <li>
+        <a href="{% url 'данные о курсе' pk=course.pk %}">{{ course.title }}</a>
+        ({{ course.teacher }})
+    </li>
+    {% endfor %}
+</ul>
+    {% else %}
+<p>Курсы отсутствуют.</p>
+    {% endif %}
+{% endblock %}

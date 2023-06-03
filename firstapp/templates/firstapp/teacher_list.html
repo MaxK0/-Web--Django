@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Список преподавателей</h1>
+
+    {% if teacher_list %}
+<ul>
+    {% for teacher in teacher_list %}
+    <li>
+        <a href="{% url 'данные о преподавателе' pk=teacher.pk %}">{{ teacher.last_name }}, {{ teacher.first_name }}</a>
+        ({{ teacher.date_of_birth }})
+    </li>
+    {% endfor %}
+</ul>
+    {% else %}
+<p>Преподаватели отсутствуют.</p>
+    {% endif %}
+{% endblock %}
